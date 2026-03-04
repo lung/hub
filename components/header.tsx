@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { Box, Bell, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -14,10 +15,12 @@ export function Header() {
             <span className="sr-only">Menu</span>
           </Button>
           <div className="flex items-center gap-2">
-            <div className="flex items-center justify-center h-8 w-8 rounded-lg bg-primary">
-              <Box className="h-4 w-4 text-primary-foreground" />
-            </div>
-            <span className="font-semibold text-foreground hidden sm:inline">Asset Hub</span>
+            <Link href="/" className="flex items-center gap-2">
+              <div className="flex items-center justify-center h-8 w-8 rounded-lg bg-primary">
+                <Box className="h-4 w-4 text-primary-foreground" />
+              </div>
+              <span className="font-semibold text-foreground hidden sm:inline">Asset Hub</span>
+            </Link>
           </div>
         </div>
         

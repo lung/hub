@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { FileImage, FileText, FileVideo, File, Clock } from "lucide-react"
 
 interface Asset {
@@ -36,9 +37,9 @@ export function RecentAssets({ assets }: RecentAssetsProps) {
       </div>
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 items-end gap-3 sm:pt-6 pb-2">
         {assets.map((asset, index) => (
-          <button
+          <Link
             key={asset.id}
-            type="button"
+            href={`/asset/${asset.id}`}
             className={`group cursor-pointer ${index % 2 === 1 ? "sm:-translate-y-4" : ""}`}
           >
             <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-card border border-border shadow-sm mb-2 group-hover:border-primary/50 transition-colors">
@@ -53,7 +54,7 @@ export function RecentAssets({ assets }: RecentAssetsProps) {
             </div>
             <p className="text-xs font-medium text-foreground truncate">{asset.name}</p>
             <p className="text-xs text-muted-foreground">{asset.updatedAt}</p>
-          </button>
+          </Link>
         ))}
       </div>
     </section>
